@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL',          'http://localhost/su25/bl2/ca6/php1_mvc_crud/');
+define('BASE_URL',          'http://localhost/su25/xuong/web_pet_shop/');
 
 define('PATH_ROOT',         __DIR__ . '/../');
 
@@ -13,6 +13,10 @@ define('BASE_ASSETS_UPLOADS',   BASE_URL . 'assets/uploads/');
 define('PATH_ASSETS_UPLOADS',   PATH_ROOT . 'assets/uploads/');
 
 define('PATH_CONTROLLER',       PATH_ROOT . 'controllers/');
+
+define('PATH_CONTROLLER_ADMIN',       PATH_ROOT . 'controllers/admin/');
+
+define('PATH_CONTROLLER_CLIENT',       PATH_ROOT . 'controllers/client/');
 
 define('PATH_MODEL',            PATH_ROOT . 'models/');
 

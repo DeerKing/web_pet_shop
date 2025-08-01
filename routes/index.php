@@ -1,7 +1,9 @@
 <?php
 
 $action = $_GET['action'] ?? '/';
-require_once './controllers/client/HomeController.php';
 match ($action) {
     '/'         => (new HomeController)->index(),
+    'login'     => (new AuthController)->login(),
+    'logout'    => (new AuthController)->logout(),
+    'register'  => (new AuthController)->register(),
 };
