@@ -10,7 +10,13 @@ class AuthController
             // Giả sử bạn có một hàm để xác thực người dùng
             if ($user = $this->authenticate($email, $password)) {
                 $_SESSION['user'] = $user; // Lưu thông tin người dùng vào session
-                $url_redirect = BASE_URL . 'admin.php'; // Chuyển hướng đến trang dashboard
+                // Kiểm tra quyền truy cập
+                if ($user['role'] !== 'admin') {
+                     $url_redirect = BASE_URL . 'index.php'; // Chuyển hướng đến trang dashboard
+                }else {
+                    $url_redirect = BASE_URL . 'admin.php'; // Chuyển hướng đến trang dashboard
+                }
+               
                 header("Location: $url_redirect");
                 exit();
             } else {

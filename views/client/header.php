@@ -42,15 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 text-center border-start border-end py-2">
-                <div class="d-inline-flex align-items-center">
-                    <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
-                    <div class="text-start">
-                        <h6 class="text-uppercase mb-1">Email Us</h6>
-                        <span>info@example.com</span>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-lg-4 text-center py-2">
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
@@ -60,6 +52,37 @@
                     </div>
                 </div>
             </div>
+            <?php 
+            $text_hello = ''; 
+            if(isset($_SESSION['user']) ) {
+                $text_hello = "Xin chào " . $_SESSION['user']['email'];
+            } 
+           
+                ?>
+            
+            <div class="col-lg-4 text-center border-start border-end py-2">
+                <div class="d-inline-flex align-items-center">
+                   
+                    <div class="text-start">
+                        <?php  
+                        if($text_hello){
+                        ?>
+                            <h6 class="text-uppercase mb-1">                             
+                                <?php echo $text_hello; ?>
+                            </h6>
+                            <a href="<?php echo BASE_URL. 'index.php?action=logout' ?>"><span>Đăng xuất</span></a>
+                         <?php 
+                         } 
+                         else 
+                         { ?>
+                            <a href="<?php echo BASE_URL. 'index.php?action=login' ?>"><span>Đăng nhập</span> </a> |                         
+                            <a href="<?php echo BASE_URL. 'index.php?action=register' ?>"><span>Đăng ký</span></a>
+                        <?php 
+                        } ?>
+                    </div>
+                </div>
+            </div>
+         
         </div>
     </div>
     <!-- Topbar End -->

@@ -20,6 +20,8 @@ define('PATH_CONTROLLER_CLIENT',       PATH_ROOT . 'controllers/client/');
 
 define('PATH_MODEL',            PATH_ROOT . 'models/');
 
+define('PATH_IMAGE', 'assets/uploads/products/');
+
 define('DB_HOST',     'localhost');
 define('DB_PORT',     '3306');
 define('DB_USERNAME', 'root');
