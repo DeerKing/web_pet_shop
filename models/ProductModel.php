@@ -5,10 +5,14 @@ class ProductModel extends BaseModel {
     /**
      * Lấy tất cả sản phẩm trong database.
      */
-    public function getAllProducts() {
-        $query = "SELECT * FROM " . $this->table;//Viết câu lệnh SQL để lấy tất cả sản phẩm
+    public function getAllProducts($page = 1, $limit = 10) {
+        $offset = ($page - 1) * $limit; // Tính toán offset dựa trên trang hiện tại và giới hạn sản phẩm trên mỗi trang
+        $query = "SELECT * FROM " . $this->table . " ORDER BY id DESC LIMIT :offset, :limit";
         $stmt = $this->pdo->prepare($query);// Chuẩn bị câu lệnh SQL  
         //Prepared Statements để tranh lỗi tấn công SQL Injection      
+        $stmt->bindParam(':offset', $offset, PDO::PARAM_INT); // Gán giá trị offset với kiểu dữ liệu là số nguyên
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT); // Gán giá trị limit với kiểu dữ liệu là số nguyên
+     
         $stmt->execute();// Thực thi câu lệnh SQL
         // FETCH_ASSOC (default): Trả về dữ liệu dạng mảng với key là tên của column (column của các table trong database)
         // FETCH_BOTH : Trả về dữ liệu dạng mảng với key là tên của column và cả số thứ tự của column
@@ -16,7 +20,18 @@ class ProductModel extends BaseModel {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);// Trả về tất cả sản phẩm dưới dạng mảng kết hợp
     }
-
+    
+    /**
+     * Lấy tổng số sản phẩm trong database.
+     */
+    public function getTotalProducts() {
+        $query = "SELECT COUNT(*) as total FROM " . $this->table;
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    }
+    
     /**
      * Lấy sản phẩm theo ID.
      */

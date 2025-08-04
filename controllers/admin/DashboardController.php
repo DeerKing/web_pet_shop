@@ -23,10 +23,16 @@ class DashboardController
         $categories = $categoryModel->getAllCategories(); // Lấy danh sách danh mục
         // Lấy danh sách sản phẩm từ model
         $productModel = new ProductModel();
-        $data_products = $productModel->getAllProducts();
+        $page = $_GET['page'] ?? 1; // Lấy trang hiện tại từ query string, mặc định là trang 1
+      
+        if($page < 1) $page = 1; // Đảm bảo trang không nhỏ hơn 1
+        $limit = 20; // Số lượng sản phẩm hiển thị trên mỗi trang
+        $data_products = $productModel->getAllProducts($page, $limit); // Lấy danh sách sản phẩm từ model
+        $totalProducts = $productModel->getTotalProducts(); // Lấy tổng số sản phẩm
+        $totalPages = ceil($totalProducts / $limit); // Tính tổng số trang
         // Hiển thị view dashboard
         require_once PATH_VIEW . 'admin/header.php';
-        require_once PATH_VIEW . 'admin/dashboard.php';
+        require_once PATH_VIEW . 'admin/product_list.php';
         require_once PATH_VIEW . 'admin/footer.php';
     }
     public function addProduct()
@@ -72,19 +78,13 @@ class DashboardController
                 }
                  
             }
-            // Kiểm tra và xử lý dữ liệu (ví dụ: validate, upload file, lưu vào database)
-            // ...
-            require_once PATH_VIEW . 'admin/header.php';
-            require_once PATH_VIEW . 'admin/add_product.php';
-            require_once PATH_VIEW . 'admin/footer.php';
-            return;
-           
+          
         }
         // Hiển thị form thêm sản phẩm
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAllCategories(); // Lấy danh sách danh mục
         require_once PATH_VIEW . 'admin/header.php';
-        require_once PATH_VIEW . 'admin/add_product.php';
+        require_once PATH_VIEW . 'admin/product_add.php';
         require_once PATH_VIEW . 'admin/footer.php';
     }
     public function editProduct()
@@ -151,7 +151,7 @@ class DashboardController
             }
             // Hiển thị form chỉnh sửa sản phẩm
             require_once PATH_VIEW . 'admin/header.php';
-            require_once PATH_VIEW . 'admin/edit_product.php';
+            require_once PATH_VIEW . 'admin/product_edit.php';
             require_once PATH_VIEW . 'admin/footer.php';
         } else {
             // Redirect nếu không có ID sản phẩm

@@ -8,5 +8,9 @@ match ($action) {
     'add-product' => $dashboardController->addProduct(),
     'edit-product' => $dashboardController->editProduct(),
     'delete-product' => $dashboardController->deleteProduct(),
+    'category'  => (new CategoryController())->index(),
+    'add-category' => (new CategoryController())->addCategory(),
+    'edit-category' => (new CategoryController())->editCategory(),
+    'delete-category' => (new CategoryController())->deleteCategory(),
     default    => $dashboardController->index(),
 };

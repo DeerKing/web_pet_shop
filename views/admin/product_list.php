@@ -54,11 +54,15 @@
             <!-- Pagination -->
             <nav class="mt-3">
             <ul class="pagination justify-content-end mb-0">
-                <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                <li class="page-item"><a class="page-link" href="<?php echo BASE_URL. "admin.php?page=1" ?>">«</a></li>
+                <?php
+                // Hiển thị các trang
+                for ($page = 1; $page <= $totalPages; $page++) {
+                    $url_page = BASE_URL . "admin.php?page={$page}";                
+                    echo "<li class='page-item'><a class='page-link' href='{$url_page}'>{$page}</a></li>";
+                }
+                ?>
+                <li class="page-item"><a class="page-link" href="<?php echo BASE_URL. "admin.php?page=$totalPages"?>">»</a></li>
             </ul>
             </nav>
 

@@ -40,7 +40,7 @@
             <nav class="col-md-3 col-lg-2 sidebar d-flex flex-column">
             <h4 class="text-center py-3 border-bottom">👤 </h4>
 
-            <a href="#"><i class="fas fa-tachometer-alt me-2"></i> Quản lý sản phẩm</a>      
-            <a href="#"><i class="fas fa-cogs me-2"></i> Quản lý danh mục</a>
+            <a href="<?php echo BASE_URL. 'admin.php' ?>"><i class="fas fa-tachometer-alt me-2"></i> Quản lý sản phẩm</a>      
+            <a href="<?php echo BASE_URL. 'admin.php?action=category' ?>"><i class="fas fa-cogs me-2"></i> Quản lý danh mục</a>
             <a href="<?php echo BASE_URL. 'index.php?action=logout' ?>"><i class="fas fa-sign-out-alt me-2 text-danger"></i> <span class="text-danger">Đăng xuất</span></a>
             </nav>
