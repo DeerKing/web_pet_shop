@@ -4,64 +4,41 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Products</h6>
-                <h1 class="display-5 text-uppercase mb-0">Products For Your Best Friends</h1>
+                <h6 class="text-primary text-uppercase">Sản phẩm HOT</h6>
+                <h1 class="display-5 text-uppercase mb-0">Sản phẩm tiêu biểu</h1>
             </div>
-            <div class="owl-carousel product-carousel">
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="assets/client/img/product-1.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
+            
+            <div class="container py-4">
+                <div class="row g-4">
+                    <?php
+                    foreach ($products as $product) {
+                        $image = $product['main_image'] ? $product['main_image'] : 'default.png';
+                        $image = PATH_IMAGE . $image;
+                    ?>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card h-100 text-center shadow-sm border-0">
+                                <img src="<?php echo $image; ?>" style="height:300px!important;"
+                                    class="card-img-top img-fluid p-3" 
+                                    alt="<?php echo htmlspecialchars($product['name']); ?>">
+                                <div class="card-body d-flex flex-column">
+                                    <h6 class="card-title text-uppercase mb-2">
+                                        <?php echo htmlspecialchars($product['name']); ?>
+                                    </h6>
+                                    <h5 class="text-primary mb-3">$<?php echo $product['price']; ?></h5>
+                                    <div class="mt-auto d-flex justify-content-center gap-2">
+                                        <a href="<?php echo BASE_URL . 'index.php?action=product&id=' . $product['id']; ?>" 
+                                        class="btn btn-primary btn-sm">
+                                        <i class="bi bi-cart"></i>
+                                        </a>
+                                        <a href="<?php echo BASE_URL . 'index.php?action=product&id=' . $product['id']; ?>" 
+                                        class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-eye"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="assets/client/img/product-2.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="assets/client/img/product-3.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="assets/client/img/product-4.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-5">
-                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="assets/client/img/product-2.png" alt="">
-                        <h6 class="text-uppercase">Quality Pet Foods</h6>
-                        <h5 class="text-primary mb-0">$199.00</h5>
-                        <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

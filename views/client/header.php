@@ -37,8 +37,8 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase mb-1">Our Office</h6>
-                        <span>123 Street, New York, USA</span>
+                        <h6 class="text-uppercase mb-1">CĐ FPT</h6>
+                        <span>Trịnh Văn Bô - Hà Nội</span>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase mb-1">Call Us</h6>
+                        <h6 class="text-uppercase mb-1">HOTLINE</h6>
                         <span>+012 345 6789</span>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0 mb-5">
-        <a href="index.html" class="navbar-brand ms-lg-5">
+        <a href="index.php" class="navbar-brand ms-lg-5">
             <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>Pet Shop</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -98,20 +98,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link">Trang chủ</a>
-                <a href="about.html" class="nav-item nav-link">Giới thiệu</a>
-                <a href="service.html" class="nav-item nav-link">Dịch vụ</a>
-                <a href="product.html" class="nav-item nav-link active">Sản phẩm</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="price.html" class="dropdown-item">Pricing Plan</a>
-                        <a href="team.html" class="dropdown-item">The Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                        <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                    </div>
-                </div> -->
+              
+                <?php
+                foreach ($categories as $category) {
+                    echo '<a href="index.php?action=category&id=' . $category['id'] . '" class="nav-item nav-link">' . $category['name'] . '</a>';
+                }
+                ?>
+                
                 <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Liên hệ <i class="bi bi-arrow-right"></i></a>
             </div>
         </div>

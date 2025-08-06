@@ -5,10 +5,9 @@ class HomeController
    public function index() {
         // Load the home view
         $productModel = new ProductModel();
-        $products = $productModel->getAllProducts(); // Lấy tất cả sản phẩm
-        // echo "<pre>";
-        // print_r($products); // In ra mảng sản phẩm để kiểm tra
-        // die();
+        $products = $productModel->getAllProducts(1, 10); // Lấy tất cả sản phẩm
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAllCategories(); // Lấy tất cả danh mục sản phẩm
         include 'views/client/header.php'; 
         include 'views/client/home_product.php';
         include 'views/client/footer.php';

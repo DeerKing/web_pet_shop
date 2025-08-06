@@ -20,6 +20,25 @@ class ProductModel extends BaseModel {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);// Trả về tất cả sản phẩm dưới dạng mảng kết hợp
     }
+    public function getAllProductsByCategory($categoryId, $page = 1, $limit = 10) {
+        $offset = ($page - 1) * $limit; // Tính toán offset dựa trên trang hiện tại và giới hạn sản phẩm trên mỗi trang
+        $query = "SELECT * FROM " . $this->table . " WHERE category_id = :category_id ORDER BY id DESC LIMIT :offset, :limit";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
+        $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getTotalProductsByCategory($categoryId) {
+        $query = "SELECT COUNT(*) as total FROM " . $this->table . " WHERE category_id = :category_id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    }
     
     /**
      * Lấy tổng số sản phẩm trong database.

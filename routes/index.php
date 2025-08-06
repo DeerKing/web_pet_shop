@@ -1,9 +1,15 @@
 <?php
 
 $action = $_GET['action'] ?? '/';
+$homeController = new HomeController();
+$authController = new AuthController();
+$categoryController = new CategoryController();
+$productController = new ProductController();
 match ($action) {
-    '/'         => (new HomeController)->index(),
-    'login'     => (new AuthController)->login(),
-    'logout'    => (new AuthController)->logout(),
-    'register'  => (new AuthController)->register(),
+    '/'         => $homeController->index(),
+    'login'     => $authController->login(),
+    'logout'    => $authController->logout(),
+    'register'  => $authController->register(),
+    'category'  => $categoryController->index(),
+    'product'   => $productController->show(),
 };
