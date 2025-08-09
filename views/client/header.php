@@ -27,6 +27,8 @@
 
     <!-- Template Stylesheet -->
     <link href="assets/client/css/style.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -105,7 +107,7 @@
                 }
                 ?>
                 
-                <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Liên hệ <i class="bi bi-arrow-right"></i></a>
+                <a href="<?php echo BASE_URL. 'index.php?action=cart'?>" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Giỏ hàng<i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </nav>

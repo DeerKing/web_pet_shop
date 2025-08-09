@@ -12,4 +12,11 @@ match ($action) {
     'register'  => $authController->register(),
     'category'  => $categoryController->index(),
     'product'   => $productController->show(),
+    'cart'      => (new CartController())->index(),
+    'cart-add'  => (new CartController())->add(),
+    'cart-remove' => (new CartController())->remove(),
+    'cart-update' => (new CartController())->update(),
+    'order'     => (new OrderController())->index(),
+    'order-add' => (new OrderController())->add(),
+    'order-success' => (new OrderController())->success(),
 };

@@ -12,5 +12,6 @@ match ($action) {
     'add-category' => (new CategoryController())->addCategory(),
     'edit-category' => (new CategoryController())->editCategory(),
     'delete-category' => (new CategoryController())->deleteCategory(),
+    'order'     => (new OrderController())->index(),
     default    => $dashboardController->index(),
 };

@@ -23,12 +23,7 @@
             
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Tin tức</h5>
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control p-3" placeholder="Your Email">
-                            <button class="btn btn-primary">Đăng ký</button>
-                        </div>
-                    </form>
+                  
                     <h6 class="text-uppercase mt-4 mb-3">Theo dõi chúng tôi</h6>
                     <div class="d-flex">
                         <a class="btn btn-outline-primary btn-square me-2" href="#"><i class="bi bi-twitter"></i></a>
@@ -73,7 +68,7 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/client/lib/easing/easing.min.js"></script>
     <script src="assets/client/lib/waypoints/waypoints.min.js"></script>

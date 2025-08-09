@@ -42,5 +42,6 @@
 
             <a href="<?php echo BASE_URL. 'admin.php' ?>"><i class="fas fa-tachometer-alt me-2"></i> Quản lý sản phẩm</a>      
             <a href="<?php echo BASE_URL. 'admin.php?action=category' ?>"><i class="fas fa-cogs me-2"></i> Quản lý danh mục</a>
+            <a href="<?php echo BASE_URL. 'admin.php?action=order' ?>"><i class="fas fa-cogs me-2"></i> Quản lý đơn hàng</a>
             <a href="<?php echo BASE_URL. 'index.php?action=logout' ?>"><i class="fas fa-sign-out-alt me-2 text-danger"></i> <span class="text-danger">Đăng xuất</span></a>
             </nav>
